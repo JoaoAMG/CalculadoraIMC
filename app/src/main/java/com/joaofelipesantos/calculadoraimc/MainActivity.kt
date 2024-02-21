@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val imcCal = Pes / (Alt * Alt) * 10000
-        val df = DecimalFormat("#.##") // Define o formato para 4 dígitos decimais
+        val df = DecimalFormat("#.##")
         val imcFormatado = df.format(imcCal)
         Resultado.text = "$imcFormatado"
 
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         animateCountingResult(imcCal)
 
 
-            // ... (código existente)
+
 
             // Fechar o teclado virtual
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -78,19 +78,19 @@ class MainActivity : AppCompatActivity() {
     private fun animateCountingResult(finalValue: Double) {
         val initialValue = 0.0
 
-        // Crie um ValueAnimator para animar a propriedade "text" do TextView
+
         val animator = ValueAnimator.ofFloat(initialValue.toFloat(), finalValue.toFloat())
 
-        // Defina a duração da animação (em milissegundos)
+
         animator.duration = 1000
 
-        // Adicione um ouvinte para atualizar o texto durante a animação
+
         animator.addUpdateListener { valueAnimator ->
             val animatedValue = valueAnimator.animatedValue as Float
             Resultado.text = String.format("%.2f", animatedValue)
         }
 
-        // Inicie a animação
+
         animator.start()
     }
 }
